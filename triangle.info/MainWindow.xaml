@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:triangle.info"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Triangle Info" Height="188.235" Width="218.138">
+    <Grid Margin="0,0,2,-1" Height="158" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="33" />
+            <RowDefinition Height="Auto" MinHeight="34" />
+            <RowDefinition Height="Auto" MinHeight="33" />
+            <RowDefinition Height="Auto" MinHeight="128" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="40" />
+            <ColumnDefinition Width="Auto" MinWidth="100" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="Side A" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23" Grid.Column="0" Grid.Row="0" Width="44"/>
+        <TextBox x:Name="tbxSideA" HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="49" Grid.Column="1" Grid.Row="0" PreviewTextInput="NumberValidationTextBox"/>
+        <Label x:Name="label_Copy" Content="Side B" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23" Grid.Column="0" Grid.Row="1" Width="43"/>
+        <TextBox x:Name="tbxSideB" HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="49" Grid.Column="1" Grid.Row="1" PreviewTextInput="NumberValidationTextBox"/>
+        <Label x:Name="label_Copy1" Content="Side C" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23" Grid.Column="0" Grid.Row="2" Width="43"/>
+        <TextBox x:Name="tbxSideC" HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="49" Grid.Column="1" Grid.Row="2" PreviewTextInput="NumberValidationTextBox"/>
+        <Label x:Name="infoOutput" Content="Label" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="208" Height="48" Grid.ColumnSpan="2" Margin="0,0,-50,0"/>
     </Grid>
 </Window>
