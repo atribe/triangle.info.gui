@@ -31,20 +31,47 @@ namespace triangle.info
             tbxSideC.TextChanged += new TextChangedEventHandler(sideChanged);
 
             tri = new Triangle(tbxSideA.Text, tbxSideB.Text, tbxSideC.Text);
+
+            updateTriangleInfoContent();
         }
 
         private void sideChanged(object sender, TextChangedEventArgs e)
         {
             tri.updateSides(tbxSideA.Text, tbxSideB.Text, tbxSideC.Text);
 
-            if(tri.isValidTriangle())
+            updateTriangleInfoContent();
+        }
+
+        private void updateTriangleInfoContent()
+        {
+            Triangle.TriangleState triState = tri.getTriangleState();
+
+            String triangleInfoMessage;
+
+            switch (triState)
             {
+                case Triangle.TriangleState.Invalid:
+                    triangleInfoMessage = "This is an invalid triangle.";
+                    break;
+                case Triangle.TriangleState.Right:
+                    triangleInfoMessage = "This is a right triangle.";
+                    break;
+                case Triangle.TriangleState.Equilateral:
+                    triangleInfoMessage = "This is an equilateral triangle.";
+                    break;
+                case Triangle.TriangleState.Isoscelese:
+                    triangleInfoMessage = "This is an isoscelese triangle.";
+                    break;
+                case Triangle.TriangleState.NotSpecial:
+                    triangleInfoMessage = "This is a normal triangle.";
+                    break;
+                default:
+                    triangleInfoMessage = "This is probably an invalid triangle.";
+                    break;
 
             }
-            else
-            {
-                infoOutput.Content = "These side lengths do not produce a valid triangle";
-            }
+
+            infoOutput.Content = triangleInfoMessage;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
